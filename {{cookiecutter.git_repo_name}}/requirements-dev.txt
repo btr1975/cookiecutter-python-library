@@ -1,0 +1,9 @@
+# These are the libraries required develop or test your app
+# NOTICE THE FIRST LINE INCLUDES THE requirements.txt
+#
+-r requirements.txt
+pytest
+coverage
+sphinx
+pylint
+{% if cookiecutter.use_requests == 'y' %}requests-mock{% endif %}

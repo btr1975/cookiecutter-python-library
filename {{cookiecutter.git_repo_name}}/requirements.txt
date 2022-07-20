@@ -1,0 +1,5 @@
+# These are the libraries required to run your app
+# They DO NOT inculde libraries needed to develop or test our app
+#
+{% if cookiecutter.use_requests == 'y' %}requests{% endif %}
+{% if cookiecutter.use_pydantic == 'y' %}pydantic{% endif %}

@@ -1,0 +1,15 @@
+{
+	"full_name": "Your Full Name",
+	"email": "Your E-Mail Address",
+	"git_username": "Your GitHub Username",
+    "git_repo_name": "The Repository Name",
+    "git_url": "The GIT URL",
+	"library_description": "A short description",
+	"library_version": "0.1.0",
+    "library_documents_location": ["readthedocs.io", "github-pages"],
+    "__library_name": "{{ cookiecutter.git_repo_name.lower().replace(' ', '_').replace('-', '_') }}",
+    "use_requests": "no",
+    "use_pydantic": "no",
+    "__template_repo": "https://github.com/btr1975/cookiecutter-python-library",
+    "__template_version": "1.0.0"
+}
