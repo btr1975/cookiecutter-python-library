@@ -30,7 +30,7 @@ setup(
     keywords='',
     url=about['__url__'],
     project_urls={
-        {% if cookiecutter.app_documents_location == 'readthedocs.io' %}'Documentation': f'https://{about["__title__"]}.readthedocs.io/en/latest/',{% endif %}
+        {% if cookiecutter.library_documents_location == 'readthedocs.io' %}'Documentation': f'https://{about["__title__"]}.readthedocs.io/en/latest/',{% endif %}
         'Source': about['__url__'],
         'Tracker': f'{about["__url__"]}/issues',
     },

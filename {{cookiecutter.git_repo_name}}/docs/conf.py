@@ -18,7 +18,7 @@ about = {}
 with open(os.path.join(base_path, 'modules', 'version.py'), 'r', encoding='utf-8') as f:
     exec(f.read(), about)
 
-{% if cookiecutter.app_documents_location == 'readthedocs.io' %}
+{% if cookiecutter.library_documents_location == 'readthedocs.io' %}
 # -- Added for readthedocs.org -----------------------------------------------
 
 master_doc = 'index'
