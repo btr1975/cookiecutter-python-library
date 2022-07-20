@@ -24,7 +24,7 @@ pylint:
 pytest:
 	@pytest -vvv
 
-{% if cookiecutter.app_documents_location == 'github-pages' %}
+{% if cookiecutter.library_documents_location == 'github-pages' %}
 gh-pages:
 	@sphinx-build ./docs ./docs/gh-pages
 {% endif %}

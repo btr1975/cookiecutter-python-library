@@ -22,7 +22,7 @@ IF "%1" == "pytest" (
     GOTO END
 )
 
-{% if cookiecutter.app_documents_location == 'github-pages' %}
+{% if cookiecutter.library_documents_location == 'github-pages' %}
 IF "%1" == "gh-pages" (
     sphinx-build ./docs ./docs/gh-pages
     GOTO END
