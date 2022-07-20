@@ -10,7 +10,7 @@ info:
 	@echo "    coverage  To run coverage and display ASCII and output to htmlcov"
 	@echo "    pylint    To run pylint"
 	@echo "    pytest    To run pytest with verbose option"
-{% if cookiecutter.app_documents_location == 'github-pages' %}	@echo "    gh-pages  To create the GitHub pages"{% endif %}
+{% if cookiecutter.library_documents_location == 'github-pages' %}	@echo "    gh-pages  To create the GitHub pages"{% endif %}
 
 coverage:
 	@coverage erase

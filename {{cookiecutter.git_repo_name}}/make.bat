@@ -33,6 +33,6 @@ IF "%1" == "gh-pages" (
 @ECHO     coverage  To run coverage and display ASCII and output to htmlcov
 @ECHO     pylint    To run pylint
 @ECHO     pytest    To run pytest with verbose option
-{% if cookiecutter.app_documents_location == 'github-pages' %}@ECHO     gh-pages  To create the GitHub pages{% endif %}
+{% if cookiecutter.library_documents_location == 'github-pages' %}@ECHO     gh-pages  To create the GitHub pages{% endif %}
 
 :END
