@@ -39,7 +39,10 @@ author = about['__author__']
 # ones.
 extensions = ['sphinx.ext.todo',
               'sphinx.ext.viewcode',
-              'sphinx.ext.autodoc'
+              'sphinx.ext.autodoc',
+              'myst_parser',
+              'docxsphinx',
+              'sphinxcontrib.mermaid',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -56,7 +59,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'alabaster'
+html_theme = '{{ cookiecutter.library_documents_theme }}'
 if html_theme == 'alabaster':
     html_theme_options = {
         'description': f'{about["__description__"]}',
@@ -67,8 +70,36 @@ if html_theme == 'alabaster':
         'github_user': '{{ cookiecutter.git_username }}',
         'github_repo': about["__title__"]
     }
+elif html_theme == 'sphinx_rtd_theme':
+    html_theme_options = {
+        # 'analytics_id': 'G-XXXXXXXXXX',
+        # 'analytics_anonymize_ip': False,
+        'logo_only': False,
+        'display_version': True,
+        'prev_next_buttons_location': 'bottom',
+        'style_external_links': False,
+        'vcs_pageview_mode': '',
+        'style_nav_header_background': '#2980B9',
+        # Toc options
+        'collapse_navigation': True,
+        'sticky_navigation': True,
+        'navigation_depth': 4,
+        'includehidden': True,
+        'titles_only': False
+    }
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+# This is used fpr making a PDF using rinohtype
+# See https://www.mos6581.org/rinohtype/master/sphinx.html
+rinoh_documents = [{'doc': 'index', 'target': f'{about["__title__"]}'}]
+
+# This is used for render markdown using myst-parser
+# see https://www.sphinx-doc.org/en/master/usage/markdown.html
+source_suffix = {
+    '.rst': 'restructuredtext',
+    '.md': 'markdown',
+}
