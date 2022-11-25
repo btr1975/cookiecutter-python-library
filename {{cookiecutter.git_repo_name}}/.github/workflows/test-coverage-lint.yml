@@ -1,0 +1,49 @@
+# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: Unit-Testing, Coverage, Linting
+
+on:
+  push:
+    branches:
+      - master
+      - develop
+      - feature/*
+      - bug/*
+  pull_request:
+    branches:
+      - master
+      - develop
+      - feature/*
+      - bug/*
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version:
+          - 3.7
+          - 3.8
+          - 3.9
+          - '3.10'
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Upgrade pip setuptools wheel
+      run: |
+        python -m pip install --upgrade pip setuptools wheel
+    - name: Install requirements from requirements-dev.txt
+      run: |
+        pip install -r requirements-dev.txt
+    - name: Run Linting
+      run: |
+        make pylint
+    - name: Run Unit-Testing and Coverage
+      run: |
+        make coverage

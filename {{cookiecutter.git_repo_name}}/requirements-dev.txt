@@ -11,4 +11,5 @@ myst-parser
 docxsphinx
 sphinx_rtd_theme
 sphinxcontrib-mermaid
+twine
 {% if cookiecutter.use_requests == 'y' %}requests-mock{% endif %}
