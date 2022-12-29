@@ -2,13 +2,11 @@
 # NOTICE THE FIRST LINE INCLUDES THE requirements.txt
 #
 -r requirements.txt
-pytest
-coverage
+pytest-cov
 sphinx
 pylint
 rinohtype
 myst-parser
-docxsphinx
 sphinx_rtd_theme
 sphinxcontrib-mermaid
 twine
