@@ -1,6 +1,0 @@
-[run]
-command_line= -m pytest -vvv
-
-[report]
-include =
-    {{cookiecutter.__library_name}}/*

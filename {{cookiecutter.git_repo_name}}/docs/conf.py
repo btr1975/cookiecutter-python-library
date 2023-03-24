@@ -12,11 +12,19 @@
 #
 import os
 import sys
+import tomli
 base_path = os.path.split(os.path.join(os.path.abspath(os.path.dirname(__name__))))[0]
 sys.path.append(base_path)
-about = {}
+
+# Reads version.py and converts to a dict of keys
+version_py = {}
 with open(os.path.join(base_path, '{{cookiecutter.__library_name}}', 'version.py'), 'r', encoding='utf-8') as f:
-    exec(f.read(), about)
+    exec(f.read(), version_py)
+
+# Reads pyproject.toml and converts to python objects
+with open(os.path.join(base_path, 'pyproject.toml'), 'r', encoding='utf-8') as file:
+    toml = file.read()
+pyproject_toml = tomli.loads(toml)
 
 {% if cookiecutter.library_documents_location == 'readthedocs.io' %}
 # -- Added for readthedocs.org -----------------------------------------------
@@ -26,10 +34,16 @@ master_doc = 'index'
 
 # -- Project information -----------------------------------------------------
 
-release = about['__version__']
-project = f'{about["__title__"]} v{release}'
-copyright = about['__copyright__']
-author = about['__author__']
+release = version_py['__version__']
+project = f"{pyproject_toml['project']['name']} v{release}"
+copyright = version_py['__copyright__']
+
+# Reads authors from pyproject.toml and adds name to list
+authors = []
+for author_name in pyproject_toml['project']['authors']:
+    authors.append(author_name.get('name'))
+
+author = ','.join(authors)
 
 
 # -- General configuration ---------------------------------------------------
@@ -61,13 +75,13 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 html_theme = '{{ cookiecutter.library_documents_theme }}'
 if html_theme == 'alabaster':
     html_theme_options = {
-        'description': f'{about["__description__"]}',
+        'description': f"{pyproject_toml['project']['description']}",
         'page_width': '95%',
         'body_max_width': '95%',
         'fixed_sidebar': 'true',
         'github_banner': 'true',
         'github_user': '{{ cookiecutter.git_username }}',
-        'github_repo': about["__title__"]
+        'github_repo': pyproject_toml['project']['name']
     }
 elif html_theme == 'sphinx_rtd_theme':
     html_theme_options = {
@@ -95,7 +109,7 @@ html_style = 'css/my_theme.css'
 
 # This is used fpr making a PDF using rinohtype
 # See https://www.mos6581.org/rinohtype/master/sphinx.html
-rinoh_documents = [{'doc': 'index', 'target': f'{about["__title__"]}'}]
+rinoh_documents = [{'doc': 'index', 'target': f"{pyproject_toml['project']['name']}"}]
 
 # This is used for render markdown using myst-parser
 # see https://www.sphinx-doc.org/en/master/usage/markdown.html

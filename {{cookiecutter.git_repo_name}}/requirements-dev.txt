@@ -2,6 +2,8 @@
 # NOTICE THE FIRST LINE INCLUDES THE requirements.txt
 #
 -r requirements.txt
+build
+tomli
 pytest-cov
 sphinx
 pylint

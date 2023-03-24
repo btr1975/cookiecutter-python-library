@@ -1,8 +1,13 @@
 @ECHO OFF
 REM Makefile for project needs
 REM Author: Ben Trachtenberg
-REM Version: 1.0.2
+REM Version: 1.0.3
 REM
+
+IF "%1" == "build" (
+    python -m build
+    GOTO END
+)
 
 IF "%1" == "coverage" (
     pytest --cov --cov-report=html -vvv
@@ -32,6 +37,7 @@ IF "%1" == "gh-pages" (
 {% endif %}
 
 @ECHO make options
+@ECHO     build     To build a distribution
 @ECHO     coverage  To run coverage and display ASCII and output to htmlcov
 @ECHO     pylint    To run pylint
 @ECHO     pytest    To run pytest with verbose option
