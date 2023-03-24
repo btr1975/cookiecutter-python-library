@@ -9,10 +9,10 @@
     "library_documents_location": ["readthedocs.io", "github-pages"],
     "library_documents_theme": ["sphinx_rtd_theme", "alabaster"],
     "__library_name": "{{ cookiecutter.git_repo_name.lower().replace(' ', '_').replace('-', '_') }}",
-    "use_requests": "no",
-    "use_pydantic": "no",
+    "use_requests": "n",
+    "use_pydantic": "n",
     "__template_repo": "https://github.com/btr1975/cookiecutter-python-library",
-    "__template_version": "1.0.3",
+    "__template_version": "1.0.4",
     "_copy_without_render": [
         ".github"
     ]
