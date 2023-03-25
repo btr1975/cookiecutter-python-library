@@ -42,10 +42,16 @@ Documentation = "https://{{ cookiecutter.git_repo_name }}.readthedocs.io/en/late
 Source = "{{ cookiecutter.git_url }}"
 Tracker = "{{ cookiecutter.git_url }}/issues"
 
-[tool.setuptools]
-packages = [
-    "{{cookiecutter.__library_name}}",
+[tool.setuptools.packages.find]
+include = [
+    "{{cookiecutter.__library_name}}*",
 ]
+
+# Add or remove file extensions to include the data
+[tool.setuptools.package-data]
+"*" = ["*.txt", "*.rst"]
+
+[tool.setuptools]
 zip-safe = false
 
 [tool.setuptools.dynamic]
