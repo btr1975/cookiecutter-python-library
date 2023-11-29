@@ -106,10 +106,10 @@ elif html_theme == 'sphinx_rtd_theme':
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 html_style = 'css/my_theme.css'
-
-# This is used fpr making a PDF using rinohtype
-# See https://www.mos6581.org/rinohtype/master/sphinx.html
-rinoh_documents = [{'doc': 'index', 'target': f"{pyproject_toml['project']['name']}"}]
+# Uncomment to lock mermaid version
+# mermaid_version = '10.5.0'
+# Allow Zoom on all mermaid diagrams
+mermaid_d3_zoom = True
 
 # This is used for render markdown using myst-parser
 # see https://www.sphinx-doc.org/en/master/usage/markdown.html

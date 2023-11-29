@@ -35,6 +35,7 @@ classifiers = [
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
 ]
 
 [project.urls]
@@ -75,6 +76,7 @@ command_line= "-m pytest -vvv"
 include = [
     "{{cookiecutter.__library_name}}/*"
 ]
+fail_under = 70
 
 [tool.pylint]
 max-line-length = 120
@@ -83,3 +85,4 @@ notes = [
     "FIXME",
     "XXX",
 ]
+fail-under = 9.9

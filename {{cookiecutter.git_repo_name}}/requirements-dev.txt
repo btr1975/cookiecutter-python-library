@@ -7,7 +7,6 @@ tomli
 pytest-cov
 sphinx
 pylint
-rinohtype
 myst-parser
 sphinx_rtd_theme
 sphinxcontrib-mermaid
