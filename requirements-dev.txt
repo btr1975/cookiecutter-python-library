@@ -1,0 +1,2 @@
+-r requirements.txt
+pytest-cookies~=0.7.0
