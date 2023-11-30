@@ -1,0 +1,12 @@
+---
+blank_issues_enabled: true
+contact_links:
+  - name: Python Information
+    url: https://www.python.org/
+    about: Python Org Website
+  - name: Cookiecutter Information
+    url: https://cookiecutter.readthedocs.io/en/stable/index.html
+    about: Cookiecutter Website
+  - name: pytest-cookies Information
+    url: https://pytest-cookies.readthedocs.io/en/latest/
+    about: pytest-cookie Website

@@ -14,8 +14,16 @@ pip install cookiecutter
 
 3. Use the cookiecutter repository to create your structure.
 
+* Use the latest
+
 ```text
 cookiecutter https://github.com/btr1975/cookiecutter-python-library
+```
+
+* Use a specific version
+
+```text
+cookiecutter https://github.com/btr1975/cookiecutter-python-library -c 1.0.0
 ```
 
 4. Now you will be asked a series of questions. This is an example
