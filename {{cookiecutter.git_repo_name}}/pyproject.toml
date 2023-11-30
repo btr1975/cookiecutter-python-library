@@ -43,6 +43,11 @@ Documentation = "https://{{ cookiecutter.git_repo_name }}.readthedocs.io/en/late
 Source = "{{ cookiecutter.git_url }}"
 Tracker = "{{ cookiecutter.git_url }}/issues"
 
+{% if cookiecutter.include_cli == "y" %}
+[project.scripts]
+{{ cookiecutter.git_repo_name }}-cli = "{{cookiecutter.__library_name}}:cli"
+{% endif %}
+
 [tool.setuptools.packages.find]
 include = [
     "{{cookiecutter.__library_name}}*",
