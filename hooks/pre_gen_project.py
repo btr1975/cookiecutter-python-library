@@ -1,3 +1,6 @@
+"""
+pre generation hooks for cookiecutter to validate data
+"""
 import re
 import sys
 
