@@ -3,6 +3,7 @@ post generation hooks for cookiecutter to remove unneeded files
 """
 from typing import List
 import os
+import shutil
 
 REMOVE_PATHS_NOT_CLI = [
     '{% if cookiecutter.include_cli != "y" %}{{cookiecutter.__library_name}}/'
@@ -24,7 +25,7 @@ def remove_paths(paths_to_remove: List[str]) -> None:
                 os.remove(path)
 
             elif os.path.isdir(path):
-                os.rmdir(path)
+                shutil.rmtree(path)
 
 
 if __name__ == '__main__':

@@ -1,2 +1,4 @@
 -r requirements.txt
+pytest-cov~=4.1.0
 pytest-cookies~=0.7.0
+pylint~=3.0.2

@@ -1,4 +1,10 @@
 # cookiecutter-python-library
+
+| BRANCH | STATUS |
+| ------ |--------|
+| main | [![Unit-Testing, Coverage, Linting](https://github.com/btr1975/cookiecutter-python-library/actions/workflows/test-bake.yml/badge.svg?branch=main)](https://github.com/btr1975/cookiecutter-python-library/actions/workflows/test-bake.yml) |
+| develop | [![Unit-Testing, Coverage, Linting](https://github.com/btr1975/cookiecutter-python-library/actions/workflows/test-bake.yml/badge.svg?branch=develop)](https://github.com/btr1975/cookiecutter-python-library/actions/workflows/test-bake.yml) |
+
 * This is a "cookiecutter" repository designed to be used as a framework to create repository structure.
 
 ## How to use a "cookiecutter" repository

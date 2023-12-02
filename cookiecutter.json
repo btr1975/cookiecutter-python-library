@@ -13,7 +13,7 @@
     "use_pydantic": ["n", "y"],
     "include_cli": ["n", "y"],
     "__template_repo": "https://github.com/btr1975/cookiecutter-python-library",
-    "__template_version": "1.0.7",
+    "__template_version": "1.0.8",
     "_copy_without_render": [
         ".github"
     ]

@@ -68,3 +68,4 @@ if __name__ == '__main__':
     validate_git_repo_name()
     validate_git_url()
     validate_library_description()
+    validate_library_version()

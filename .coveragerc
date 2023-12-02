@@ -1,0 +1,6 @@
+[run]
+command_line= -m pytest
+
+[report]
+include =
+    hooks/*

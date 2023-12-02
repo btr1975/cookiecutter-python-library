@@ -47,3 +47,6 @@ jobs:
     - name: Run Testing
       run: |
         pytest -vvv
+    - name: Run Linting
+      run: |
+        pylint hooks/

@@ -12,9 +12,11 @@
 
    source/index
 
+{% if cookiecutter.library_documents_theme == "alabaster" %}
 Indices and tables
 ==================
 
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+{% endif %}
