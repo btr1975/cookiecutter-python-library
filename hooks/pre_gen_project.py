@@ -5,7 +5,12 @@ import re
 import sys
 
 
-def validate_git_repo_name():
+def validate_git_repo_name() -> None:
+    """Validate git_repo_name is valid
+
+    :rtype: None
+    :return: Nothing it exits if the git_repo_name is invalid
+    """
     arg_regex = r'^([A-Z]|[a-z]|[0-9]|-{1})+$'
     arg_name = '{{ cookiecutter.git_repo_name }}'
     if not re.match(arg_regex, arg_name):
@@ -13,7 +18,12 @@ def validate_git_repo_name():
         sys.exit(1)
 
 
-def validate_full_name():
+def validate_full_name() -> None:
+    """Validate full_name is valid
+
+    :rtype: None
+    :return: Nothing it exits if the full_name is invalid
+    """
     arg_regex = r'^\S.*\S$'
     arg_name = '{{ cookiecutter.full_name }}'
     if not re.match(arg_regex, arg_name):
@@ -21,7 +31,12 @@ def validate_full_name():
         sys.exit(1)
 
 
-def validate_email():
+def validate_email() -> None:
+    """Validate email is valid
+
+    :rtype: None
+    :return: Nothing it exits if the email is invalid
+    """
     arg_regex = r'^\S+$'
     arg_name = '{{ cookiecutter.email }}'
     if not re.match(arg_regex, arg_name):
@@ -29,7 +44,12 @@ def validate_email():
         sys.exit(1)
 
 
-def validate_git_username():
+def validate_git_username() -> None:
+    """Validate git_username is valid
+
+    :rtype: None
+    :return: Nothing it exits if the git_username is invalid
+    """
     arg_regex = r'^\S+$'
     arg_name = '{{ cookiecutter.git_username }}'
     if not re.match(arg_regex, arg_name):
@@ -37,7 +57,12 @@ def validate_git_username():
         sys.exit(1)
 
 
-def validate_git_url():
+def validate_git_url() -> None:
+    """Validate git_url is valid
+
+    :rtype: None
+    :return: Nothing it exits if the git_url is invalid
+    """
     arg_regex = r'^https://\S+$'
     arg_name = '{{ cookiecutter.git_url }}'
     if not re.match(arg_regex, arg_name):
@@ -45,7 +70,12 @@ def validate_git_url():
         sys.exit(1)
 
 
-def validate_library_description():
+def validate_library_description() -> None:
+    """Validate library_description is valid
+
+    :rtype: None
+    :return: Nothing it exits if the library_description is invalid
+    """
     arg_regex = r'^\S.*\S$'
     arg_name = '{{ cookiecutter.library_description }}'
     if not re.match(arg_regex, arg_name):
@@ -53,7 +83,12 @@ def validate_library_description():
         sys.exit(1)
 
 
-def validate_library_version():
+def validate_library_version() -> None:
+    """Validate library_version is valid
+
+    :rtype: None
+    :return: Nothing it exits if the library_version is invalid
+    """
     arg_regex = r'^\d+\.\d+\.\d+$'
     arg_name = '{{ cookiecutter.library_version }}'
     if not re.match(arg_regex, arg_name):
