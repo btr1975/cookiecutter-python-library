@@ -46,7 +46,7 @@ jobs:
         pip install -r requirements-dev.txt
     - name: Run Testing
       run: |
-        pytest -vvv
+        pytest --cov -vvv
     - name: Run Linting
       run: |
         pylint hooks/

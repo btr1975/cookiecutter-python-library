@@ -4,3 +4,4 @@ command_line= -m pytest
 [report]
 include =
     hooks/*
+fail_under = 100
