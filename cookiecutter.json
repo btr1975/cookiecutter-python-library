@@ -1,6 +1,6 @@
 {
-	"full_name": "Your Full Name",
-	"email": "Your E-Mail Address",
+	"full_name": "Firstname Lastname",
+	"email": "example@example.com",
 	"git_username": "Your GitHub Username",
     "git_repo_name": "The Repository Name",
     "git_url": "The GIT URL",
@@ -13,8 +13,43 @@
     "use_pydantic": ["n", "y"],
     "include_cli": ["n", "y"],
     "__template_repo": "https://github.com/btr1975/cookiecutter-python-library",
-    "__template_version": "1.0.8",
+    "__template_version": "1.0.9",
+    "_new_lines":"\n",
     "_copy_without_render": [
         ".github"
-    ]
+    ],
+    "__prompts__": {
+        "full_name": "Your Full Name",
+        "email": "Your E-Mail Address",
+        "git_username": "Your GitHub Username",
+        "git_repo_name": "The Repository Name",
+        "git_url": "The full GIT URL example: https://github.com/user-name-or-org/repo-name",
+        "library_description": "A short description",
+        "library_version": "Library Version in the following format: X.X.X",
+        "library_documents_location": {
+            "__prompt__": "Where will the documentation be hosted",
+            "readthedocs.io": "Read the Docs",
+            "github-pages": "GitHub Pages"
+        },
+        "library_documents_theme": {
+            "__prompt__": "Which theme will be used for the documentation",
+            "sphinx_rtd_theme": "Read the Docs Theme",
+            "alabaster": "Alabaster Theme"
+        },
+        "use_requests": {
+            "__prompt__": "Will you use the requests library",
+            "n": "No",
+            "y": "Yes"
+        },
+        "use_pydantic": {
+            "__prompt__": "Will you use the pydantic library",
+            "n": "No",
+            "y": "Yes"
+        },
+        "include_cli": {
+            "__prompt__": "Include a CLI starter",
+            "n": "No",
+            "y": "Yes"
+        }
+    }
 }
