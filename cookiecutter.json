@@ -11,7 +11,7 @@
     "__library_name": "{{ cookiecutter.git_repo_name.lower().replace(' ', '_').replace('-', '_') }}",
     "use_requests": ["n", "y"],
     "use_pydantic": ["n", "y"],
-    "include_cli": ["n", "y"],
+    "include_cli": ["y", "n"],
     "container_runtime": ["podman", "docker"],
     "__template_repo": "https://github.com/btr1975/cookiecutter-python-library",
     "__template_version": "1.0.10",
