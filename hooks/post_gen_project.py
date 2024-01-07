@@ -11,6 +11,13 @@ REMOVE_PATHS_NOT_CLI = [
     '{% if cookiecutter.include_cli != "y" %}{{cookiecutter.__library_name}}/example.py{% endif %}',
 ]
 
+REMOVE_PATHS_PODMAN = [
+    '{% if cookiecutter.container_runtime == "podman" %}containers/Dockerfile{% endif %}',
+]
+
+REMOVE_PATHS_DOCKER = [
+    '{% if cookiecutter.container_runtime == "docker" %}containers/Containerfile{% endif %}',
+]
 
 def remove_paths(paths_to_remove: List[str]) -> None:
     """Remove files and directories
@@ -30,3 +37,5 @@ def remove_paths(paths_to_remove: List[str]) -> None:
 
 if __name__ == '__main__':
     remove_paths(REMOVE_PATHS_NOT_CLI)
+    remove_paths(REMOVE_PATHS_PODMAN)
+    remove_paths(REMOVE_PATHS_DOCKER)

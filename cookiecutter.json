@@ -12,8 +12,9 @@
     "use_requests": ["n", "y"],
     "use_pydantic": ["n", "y"],
     "include_cli": ["n", "y"],
+    "container_runtime": ["podman", "docker"],
     "__template_repo": "https://github.com/btr1975/cookiecutter-python-library",
-    "__template_version": "1.0.9",
+    "__template_version": "1.0.10",
     "_new_lines":"\n",
     "_copy_without_render": [
         ".github"
@@ -50,6 +51,11 @@
             "__prompt__": "Include a CLI starter",
             "n": "No",
             "y": "Yes"
+        },
+        "container_runtime": {
+            "__prompt__": "Which container runtime will be used",
+            "podman": "Podman",
+            "docker": "Docker"
         }
     }
 }
