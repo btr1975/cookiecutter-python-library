@@ -15,6 +15,7 @@ import sys
 import tomli
 base_path = os.path.split(os.path.join(os.path.abspath(os.path.dirname(__name__))))[0]
 sys.path.append(base_path)
+sys.path.append(os.path.join(base_path, 'docs', '_ext'))
 
 # Reads version.py and converts to a dict of keys
 version_py = {}
@@ -56,6 +57,7 @@ extensions = ['sphinx.ext.todo',
               'sphinx.ext.autodoc',
               'myst_parser',
               'sphinxcontrib.mermaid',
+              'jinja2_rendering',  # My custom extension
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -100,6 +102,11 @@ elif html_theme == 'sphinx_rtd_theme':
         'includehidden': True,
         'titles_only': False
     }
+
+# These are the variables you would use in Jinja2
+# html_context = {
+#     'var_name': 'var_value',
+# }
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
