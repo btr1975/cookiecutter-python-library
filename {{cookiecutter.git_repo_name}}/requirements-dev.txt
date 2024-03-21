@@ -3,6 +3,7 @@
 #
 -r requirements.txt
 build
+black
 tomli
 pytest-cov
 sphinx

@@ -1,9 +1,9 @@
 {
-	"full_name": "Firstname Lastname",
-	"email": "example@example.com",
-	"git_username": "user-name",
+    "full_name": "Firstname Lastname",
+    "email": "example@example.com",
+    "git_username": "user-name",
     "git_repo_name": "my-python-thing",
-    "git_url": "https://github.com/user-name-or-org/my-python-thing",
+    "git_url": "https://github.com/{{ cookiecutter.git_username }}/{{ cookiecutter.git_repo_name }}",
 	"library_description": "A short description",
 	"library_version": "0.1.0",
     "library_documents_location": ["readthedocs.io", "github-pages"],
@@ -14,7 +14,7 @@
     "include_cli": ["y", "n"],
     "container_runtime": ["podman", "docker"],
     "__template_repo": "https://github.com/btr1975/cookiecutter-python-library",
-    "__template_version": "1.0.11",
+    "__template_version": "1.0.12",
     "_new_lines":"\n",
     "_copy_without_render": [
         ".github"
@@ -22,7 +22,7 @@
     "__prompts__": {
         "full_name": "Your Full Name",
         "email": "Your E-Mail Address",
-        "git_username": "Your GitHub Username",
+        "git_username": "Your GitHub Username or GitHub Organization Name",
         "git_repo_name": "The Repository Name",
         "git_url": "The full GIT URL",
         "library_description": "A short description",

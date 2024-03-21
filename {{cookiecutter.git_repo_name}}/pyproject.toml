@@ -91,3 +91,6 @@ notes = [
     "XXX",
 ]
 fail-under = 9.9
+
+[tool.black]
+line-length = 120
