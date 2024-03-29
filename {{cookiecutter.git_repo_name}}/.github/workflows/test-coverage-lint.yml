@@ -20,22 +20,24 @@ on:
       - bug/*
 
 jobs:
-  build:
-
-    runs-on: ubuntu-latest
+  linting:
+    runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
         python-version:
-          - '3.8'
-          - '3.9'
+          - 3.8
+          - 3.9
           - '3.10'
           - '3.11'
           - '3.12'
+        os:
+          - ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python-version }}
     - name: Upgrade pip setuptools wheel
@@ -47,9 +49,69 @@ jobs:
     - name: Run Linting
       run: |
         make pylint
-    - name: Run Unit-Testing and Coverage
-      run: |
-        make coverage
-    - name: Run Build
-      run: |
-        make build
+
+  testing-coverage:
+    needs: linting
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version:
+          - 3.8
+          - 3.9
+          - '3.10'
+          - '3.11'
+          - '3.12'
+        os:
+          - ubuntu-latest
+          - windows-latest
+          - macos-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Upgrade pip setuptools wheel
+        run: |
+          python -m pip install --upgrade pip setuptools wheel
+      - name: Install requirements from requirements-dev.txt
+        run: |
+          pip install -r requirements-dev.txt
+      - name: Run Unit-Testing and Coverage
+        run: |
+          make coverage
+
+  build:
+    needs: testing-coverage
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version:
+          - 3.8
+          - 3.9
+          - '3.10'
+          - '3.11'
+          - '3.12'
+        os:
+          - ubuntu-latest
+          - windows-latest
+          - macos-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Upgrade pip setuptools wheel
+        run: |
+          python -m pip install --upgrade pip setuptools wheel
+      - name: Install requirements from requirements-dev.txt
+        run: |
+          pip install -r requirements-dev.txt
+      - name: Run Build
+        run: |
+          make build
