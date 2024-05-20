@@ -3,6 +3,7 @@
 #
 -r requirements.txt
 build
+pip-audit
 black
 tomli
 pytest-cov

@@ -1,14 +1,16 @@
 # Makefile for project needs
 # Author: Ben Trachtenberg
-# Version: 1.0.6
+# Version: 1.0.7
 #
 
-.PHONY: info build build-container coverage format pylint pytest start-container stop-container remove-container gh-pages
+.PHONY: info build build-container coverage format pylint pytest start-container stop-container remove-container \
+        gh-pages check-vuln
 
 info:
 	@echo "make options"
 	@echo "    build               To build a distribution"
 	@echo "    build-container     To build a container image"
+	@echo "    check-vuln          To check for vulnerabilities in the dependencies"
 	@echo "    coverage            To run coverage and display ASCII and output to htmlcov"
 	@echo "    format              To format the code with black"
 	@echo "    pylint              To run pylint"
@@ -71,3 +73,6 @@ stop-container:
 remove-container:
 	@docker rm {{ cookiecutter.git_repo_name }}
 {% endif %}
+
+check-vuln:
+	@pip-audit -r requirements.txt

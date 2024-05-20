@@ -1,7 +1,7 @@
 @ECHO OFF
 REM Makefile for project needs
 REM Author: Ben Trachtenberg
-REM Version: 1.0.5
+REM Version: 1.0.6
 REM
 
 IF "%1" == "build" (
@@ -29,6 +29,11 @@ IF "%1" == "format" (
     GOTO END
 )
 
+IF "%1" == "check-vuln" (
+    pip-audit -r requirements.txt
+    GOTO END
+)
+
 {% if cookiecutter.library_documents_location == 'github-pages' %}
 IF "%1" == "gh-pages" (
     rmdir /s /q docs\source\code
@@ -39,11 +44,12 @@ IF "%1" == "gh-pages" (
 {% endif %}
 
 @ECHO make options
-@ECHO     build     To build a distribution
-@ECHO     coverage  To run coverage and display ASCII and output to htmlcov
-@ECHO     format    To format the code with black
-@ECHO     pylint    To run pylint
-@ECHO     pytest    To run pytest with verbose option
+@ECHO     build           To build a distribution
+@ECHO     coverage        To run coverage and display ASCII and output to htmlcov
+@ECHO     check-vuln      To check for vulnerabilities in the dependencies
+@ECHO     format          To format the code with black
+@ECHO     pylint          To run pylint
+@ECHO     pytest          To run pytest with verbose option
 {% if cookiecutter.library_documents_location == 'github-pages' %}@ECHO     gh-pages  To create the GitHub pages{% endif %}
 
 :END

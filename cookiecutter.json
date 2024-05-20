@@ -14,7 +14,7 @@
     "include_cli": ["y", "n"],
     "container_runtime": ["podman", "docker"],
     "__template_repo": "https://github.com/btr1975/cookiecutter-python-library",
-    "__template_version": "1.0.13",
+    "__template_version": "1.0.14",
     "_new_lines":"\n",
     "_copy_without_render": [
         ".github"
