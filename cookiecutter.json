@@ -9,6 +9,7 @@
     "library_documents_location": ["readthedocs.io", "github-pages"],
     "library_documents_theme": ["sphinx_rtd_theme", "alabaster"],
     "__library_name": "{{ cookiecutter.git_repo_name.lower().replace(' ', '_').replace('-', '_') }}",
+    "minimum_python_version": ["3.9", "3.10", "3.11", "3.12", "3.13"],
     "use_requests": ["n", "y"],
     "use_pydantic": ["n", "y"],
     "include_cli": ["y", "n"],
@@ -36,6 +37,14 @@
             "__prompt__": "Which theme will be used for the documentation",
             "sphinx_rtd_theme": "Read the Docs Theme",
             "alabaster": "Alabaster Theme"
+        },
+        "minimum_python_version": {
+            "__prompt__": "Which minimum Python version will be supported",
+            "3.9": "3.9",
+            "3.10": "3.10",
+            "3.11": "3.11",
+            "3.12": "3.12",
+            "3.13": "3.13"
         },
         "use_requests": {
             "__prompt__": "Will you use the requests library",
