@@ -22,14 +22,30 @@ pip install cookiecutter
 
 * Use the latest
 
+##### HTTPS
+
 ```text
 cookiecutter https://github.com/btr1975/cookiecutter-python-library
 ```
 
+##### SSH
+
+```text
+cookiecutter git@github.com:btr1975/cookiecutter-python-library
+```
+
 * Use a specific version
+
+##### HTTPS
 
 ```text
 cookiecutter https://github.com/btr1975/cookiecutter-python-library -c 1.0.0
+```
+
+##### SSH
+
+```text
+cookiecutter git@github.com:btr1975/cookiecutter-python-library -c 1.0.0
 ```
 
 4. Now you will be asked a series of questions. This is an example
