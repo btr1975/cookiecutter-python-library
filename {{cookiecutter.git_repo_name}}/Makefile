@@ -1,9 +1,9 @@
 # Makefile for project needs
 # Author: Ben Trachtenberg
-# Version: 1.0.7
+# Version: 1.0.8
 #
 
-.PHONY: info build build-container coverage format pylint pytest start-container stop-container remove-container \
+.PHONY: all info build build-container coverage format pylint pytest start-container stop-container remove-container \
         gh-pages check-vuln
 
 info:
@@ -19,6 +19,8 @@ info:
 	@echo "    stop-container      To stop the container"
 	@echo "    remove-container    To remove the container"
 {% if cookiecutter.library_documents_location == 'github-pages' %}	@echo "    gh-pages           To create the GitHub pages"{% endif %}
+
+all: coverage format pylint check-vuln
 
 build:
 	@python -m build
@@ -38,6 +40,7 @@ coverage:
 
 format:
 	@black {{cookiecutter.__library_name}}/
+	@black tests/
 
 pylint:
 	@pylint {{cookiecutter.__library_name}}/

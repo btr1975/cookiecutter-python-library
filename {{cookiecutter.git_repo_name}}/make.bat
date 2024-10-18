@@ -1,8 +1,17 @@
 @ECHO OFF
 REM Makefile for project needs
 REM Author: Ben Trachtenberg
-REM Version: 1.0.6
+REM Version: 1.0.7
 REM
+
+IF "%1" == "all" (
+    pytest --cov --cov-report=html -vvv
+    black {{cookiecutter.__library_name}}/
+    black tests/
+    pylint {{cookiecutter.__library_name}}\
+    pip-audit -r requirements.txt
+    GOTO END
+)
 
 IF "%1" == "build" (
     python -m build
@@ -26,6 +35,7 @@ IF "%1" == "pytest" (
 
 IF "%1" == "format" (
     black {{cookiecutter.__library_name}}/
+    black tests/
     GOTO END
 )
 
