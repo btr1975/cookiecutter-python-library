@@ -8,6 +8,7 @@
 
 info:
 	@echo "make options"
+	@echo "    all                 To run coverage, format, pylint, and check-vuln"
 	@echo "    build               To build a distribution"
 	@echo "    build-container     To build a container image"
 	@echo "    check-vuln          To check for vulnerabilities in the dependencies"

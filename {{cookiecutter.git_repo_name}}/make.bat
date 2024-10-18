@@ -54,6 +54,7 @@ IF "%1" == "gh-pages" (
 {% endif %}
 
 @ECHO make options
+@ECHO     all             To run coverage, format, pylint, and check-vuln
 @ECHO     build           To build a distribution
 @ECHO     coverage        To run coverage and display ASCII and output to htmlcov
 @ECHO     check-vuln      To check for vulnerabilities in the dependencies
