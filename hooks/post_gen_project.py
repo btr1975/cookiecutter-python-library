@@ -1,14 +1,15 @@
 """
 post generation hooks for cookiecutter to remove unneeded files
 """
+
 from typing import List
 import os
 import shutil
 
 REMOVE_PATHS_NOT_CLI = [
-    '{% if cookiecutter.include_cli != "y" %}{{cookiecutter.__library_name}}/'
-    '{{cookiecutter.__library_name}}_cli.py{% endif %}',
-    '{% if cookiecutter.include_cli != "y" %}{{cookiecutter.__library_name}}/example.py{% endif %}',
+    "{% if cookiecutter.include_cli != 'y' %}{{cookiecutter.__library_name}}/"
+    "{{cookiecutter.__library_name}}_cli.py{% endif %}",
+    "{% if cookiecutter.include_cli != 'y' %}{{cookiecutter.__library_name}}/example.py{% endif %}",
 ]
 
 REMOVE_PATHS_PODMAN = [
@@ -18,6 +19,7 @@ REMOVE_PATHS_PODMAN = [
 REMOVE_PATHS_DOCKER = [
     '{% if cookiecutter.container_runtime == "docker" %}containers/Containerfile{% endif %}',
 ]
+
 
 def remove_paths(paths_to_remove: List[str]) -> None:
     """Remove files and directories
@@ -35,7 +37,7 @@ def remove_paths(paths_to_remove: List[str]) -> None:
                 shutil.rmtree(path)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     remove_paths(REMOVE_PATHS_NOT_CLI)
     remove_paths(REMOVE_PATHS_PODMAN)
     remove_paths(REMOVE_PATHS_DOCKER)
