@@ -4,19 +4,47 @@
     "git_username": "user-name",
     "git_repo_name": "my-python-thing",
     "git_url": "https://github.com/{{ cookiecutter.git_username }}/{{ cookiecutter.git_repo_name }}",
-	"library_description": "A short description",
-	"library_version": "0.1.0",
-    "library_documents_location": ["readthedocs.io", "github-pages"],
-    "library_documents_theme": ["sphinx_rtd_theme", "alabaster"],
+    "library_description": "A short description",
+    "library_version": "0.1.0",
+    "library_documents_location": [
+        "readthedocs.io",
+        "github-pages"
+    ],
+    "library_documents_theme": [
+        "sphinx_rtd_theme",
+        "alabaster"
+    ],
     "__library_name": "{{ cookiecutter.git_repo_name.lower().replace(' ', '_').replace('-', '_') }}",
-    "minimum_python_version": ["3.9", "3.10", "3.11", "3.12", "3.13"],
-    "use_requests": ["n", "y"],
-    "use_pydantic": ["n", "y"],
-    "include_cli": ["y", "n"],
-    "container_runtime": ["podman", "docker"],
+    "minimum_python_version": [
+        "3.9",
+        "3.10",
+        "3.11",
+        "3.12",
+        "3.13"
+    ],
+    "use_requests": [
+        "n",
+        "y"
+    ],
+    "use_pydantic": [
+        "n",
+        "y"
+    ],
+    "include_cli": [
+        "y",
+        "n"
+    ],
+    "container_runtime": [
+        "podman",
+        "docker"
+    ],
+    "container_git_protocol": [
+        "ssh",
+        "https"
+    ],
     "__template_repo": "https://github.com/btr1975/cookiecutter-python-library",
-    "__template_version": "1.0.14",
-    "_new_lines":"\n",
+    "__template_version": "1.0.15",
+    "_new_lines": "\n",
     "_copy_without_render": [
         ".github"
     ],
@@ -65,6 +93,11 @@
             "__prompt__": "Which container runtime will be used",
             "podman": "Podman",
             "docker": "Docker"
+        },
+        "container_git_protocol": {
+            "__prompt__": "Which protocol will be used for installing in the container",
+            "ssh": "SSH",
+            "https": "HTTPS"
         }
     }
 }

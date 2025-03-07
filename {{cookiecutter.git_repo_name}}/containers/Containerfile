@@ -13,8 +13,15 @@ ARG build_branch=main
 
 ENV BUILD_BRANCH=${build_branch}
 
+{% if cookiecutter.container_git_protocol == "https" %}
+# This can only be used if you repo is a public repo
+RUN ${PIP_INSTALL_COMMAND} git+https://github.com/{{ cookiecutter.git_username }}/{{ cookiecutter.git_repo_name }}@${BUILD_BRANCH}
+{% endif %}
+
+{% if cookiecutter.container_git_protocol == "ssh" %}
 RUN --mount=type=ssh,required=true  \
     ${PIP_INSTALL_COMMAND} git+ssh://git@github.com/{{ cookiecutter.git_username }}/{{ cookiecutter.git_repo_name }}@${BUILD_BRANCH}
+{% endif %}
 
 EXPOSE 8080/tcp
 
