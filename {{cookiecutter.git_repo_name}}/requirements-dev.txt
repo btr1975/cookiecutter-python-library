@@ -13,4 +13,5 @@ myst-parser
 sphinx_rtd_theme
 sphinxcontrib-mermaid
 twine
+bandit
 {% if cookiecutter.use_requests == 'y' %}requests-mock{% endif %}

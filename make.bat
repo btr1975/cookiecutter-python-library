@@ -10,6 +10,7 @@ IF "%1" == "all" (
     pylint hooks\
     pytest --cov --cov-report=html -vvv
     bandit -c pyproject.toml -r .
+    pip-audit -r requirements.txt
     GOTO END
 )
 
@@ -36,6 +37,11 @@ IF "%1" == "black" (
 
 IF "%1" == "secure" (
     bandit -c pyproject.toml -r .
+    GOTO END
+)
+
+IF "%1" == "vulnerabilities" (
+    pip-audit -r requirements.txt
     GOTO END
 )
 
