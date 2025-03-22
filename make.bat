@@ -5,10 +5,11 @@ REM Version: 1.0.0
 REM
 
 IF "%1" == "all" (
-    pytest --cov --cov-report=html -vvv
     black hooks\
     black tests\
     pylint hooks\
+    pytest --cov --cov-report=html -vvv
+    bandit -c pyproject.toml -r .
     GOTO END
 )
 
@@ -30,6 +31,11 @@ IF "%1" == "pytest" (
 IF "%1" == "black" (
     black hooks\
     black tests\
+    GOTO END
+)
+
+IF "%1" == "secure" (
+    bandit -c pyproject.toml -r .
     GOTO END
 )
 

@@ -27,3 +27,11 @@ fail-under = 9.9
 
 [tool.black]
 line-length = 120
+
+[tool.bandit]
+exclude_dirs = [
+    "tests",
+    "venv",
+    "docs",
+    "{{cookiecutter.git_repo_name}}"
+]

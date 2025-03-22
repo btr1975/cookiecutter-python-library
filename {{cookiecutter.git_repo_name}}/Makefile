@@ -1,6 +1,6 @@
 # Makefile for project needs
 # Author: Ben Trachtenberg
-# Version: 1.0.8
+# Version: 1.0.9
 #
 
 .PHONY: all info build build-container coverage format pylint pytest start-container stop-container remove-container \
@@ -12,6 +12,7 @@ info:
 	@echo "    build               To build a distribution"
 	@echo "    build-container     To build a container image"
 	@echo "    check-vuln          To check for vulnerabilities in the dependencies"
+	@echo "    check-security      To check for vulnerabilities in the code"
 	@echo "    coverage            To run coverage and display ASCII and output to htmlcov"
 	@echo "    format              To format the code with black"
 	@echo "    pylint              To run pylint"
@@ -21,7 +22,7 @@ info:
 	@echo "    remove-container    To remove the container"
 {% if cookiecutter.library_documents_location == 'github-pages' %}	@echo "    gh-pages           To create the GitHub pages"{% endif %}
 
-all: coverage format pylint check-vuln
+all: format pylint coverage check-security check-vuln
 
 build:
 	@python -m build
@@ -80,3 +81,6 @@ remove-container:
 
 check-vuln:
 	@pip-audit -r requirements.txt
+
+check-security:
+	@bandit -c pyproject.toml -r .

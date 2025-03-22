@@ -11,7 +11,7 @@ info:
 	@echo "    coverage  To run coverage and display ASCII and output to htmlcov"
 	@echo "    pytest    To run pytest with verbose option"
 
-all: coverage black pylint
+all: black pylint coverage secure
 
 coverage:
 	@pytest --cov --cov-report=html -vvv
@@ -25,3 +25,6 @@ pylint:
 black:
 	@black hooks/
 	@black tests/
+
+secure:
+	@bandit -c pyproject.toml -r .
