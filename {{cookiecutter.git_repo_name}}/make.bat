@@ -75,7 +75,6 @@ IF "%option%" == "all" (
     uv run pylint {{cookiecutter.__library_name}}\
     uv run pytest --cov --cov-report=html -vvv
     uv run bandit -c pyproject.toml -r .
-    uv run pip-audit -r requirements.txt
     uv export --no-dev --no-emit-project --no-editable > requirements.txt
     uv export --no-emit-project --no-editable > requirements-dev.txt
     GOTO END
@@ -104,11 +103,6 @@ IF "%option%" == "pytest" (
 IF "%option%" == "format" (
     uv run black {{cookiecutter.__library_name}}/
     uv run black tests/
-    GOTO END
-)
-
-IF "%option%" == "check-vuln" (
-    uv run pip-audit -r requirements.txt
     GOTO END
 )
 

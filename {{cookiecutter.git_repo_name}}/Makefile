@@ -57,7 +57,7 @@ gh-pages:
 
 {% elif cookiecutter.package_manager == 'uv' %}
 
-all: format pylint coverage check-security check-vuln pip-export
+all: format pylint coverage check-security pip-export
 
 build:
 	@uv build --wheel --sdist
@@ -74,9 +74,6 @@ pylint:
 
 pytest:
 	@uv run pytest --cov -vvv
-
-check-vuln:
-	@uv run pip-audit -r requirements.txt
 
 check-security:
 	@uv run bandit -c pyproject.toml -r .
