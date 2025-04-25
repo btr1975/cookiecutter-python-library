@@ -20,6 +20,11 @@ REMOVE_PATHS_DOCKER = [
     '{% if cookiecutter.container_runtime == "docker" %}containers/Containerfile{% endif %}',
 ]
 
+REMOVE_PATHS_UV = [
+    '{% if cookiecutter.package_manager == "uv" %}requirements.txt{% endif %}',
+    '{% if cookiecutter.package_manager == "uv" %}requirements-dev.txt{% endif %}',
+]
+
 
 def remove_paths(paths_to_remove: List[str]) -> None:
     """Remove files and directories
@@ -41,3 +46,4 @@ if __name__ == "__main__":
     remove_paths(REMOVE_PATHS_NOT_CLI)
     remove_paths(REMOVE_PATHS_PODMAN)
     remove_paths(REMOVE_PATHS_DOCKER)
+    remove_paths(REMOVE_PATHS_UV)

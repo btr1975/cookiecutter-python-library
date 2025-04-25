@@ -7,7 +7,11 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "{{ cookiecutter.git_repo_name }}"
+{% if cookiecutter.package_manager == 'pip' %}
 dynamic = ["version", "readme", "dependencies"]
+{% elif cookiecutter.package_manager == 'uv' %}
+dynamic = ["version", "readme"]
+{% endif %}
 requires-python = ">={{ cookiecutter.minimum_python_version }}"
 description = "{{ cookiecutter.library_description }}"
 keywords = [
@@ -49,6 +53,27 @@ classifiers = [
 
 ]
 
+{% if cookiecutter.package_manager == 'uv' %}
+dependencies = [
+    {% if cookiecutter.use_requests == 'y' %}"requests",{% endif %}
+    {% if cookiecutter.use_pydantic == 'y' %}"pydantic",{% endif %}
+]
+
+[dependency-groups]
+dev = [
+    "black",
+    "tomli",
+    "pytest-cov",
+    "sphinx",
+    "pylint",
+    "myst-parser",
+    "sphinx_rtd_theme",
+    "sphinxcontrib-mermaid",
+    "bandit",
+    {% if cookiecutter.use_requests == 'y' %}"requests-mock",{% endif %}
+]
+{% endif %}
+
 [project.urls]
 Documentation = "https://{{ cookiecutter.git_repo_name }}.readthedocs.io/en/latest/"
 Source = "{{ cookiecutter.git_url }}"
@@ -74,7 +99,9 @@ zip-safe = false
 [tool.setuptools.dynamic]
 version = {attr = "{{cookiecutter.__library_name}}.version.__version__"}
 readme = {file = "README.md", content-type = "text/markdown"}
+{% if cookiecutter.package_manager == 'pip' %}
 dependencies = {file = "requirements.txt"}
+{% endif %}
 
 [tool.pytest.ini_options]
 addopts = "--strict-markers"
@@ -109,3 +136,12 @@ exclude_dirs = [
     "venv",
     "docs"
 ]
+
+{% if cookiecutter.package_manager == 'uv' %}
+# UV settings reference https://docs.astral.sh/uv/reference/settings/
+
+[tool.uv]
+keyring-provider = "subprocess"
+native-tls = true
+
+{% endif %}
