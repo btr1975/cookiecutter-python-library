@@ -47,7 +47,7 @@
         "https"
     ],
     "__template_repo": "https://github.com/btr1975/cookiecutter-python-library",
-    "__template_version": "2.0.0",
+    "__template_version": "2.0.1",
     "_new_lines": "\n",
     "_copy_without_render": [
         ".github"

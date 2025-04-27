@@ -22,10 +22,12 @@ authors = [
 maintainers = [
   {name = "{{ cookiecutter.full_name }}", email = "{{ cookiecutter.email }}"},
 ]
-license = {file = "LICENSE"}
+license = "MIT"
+license-files = [
+    "LICENSE"
+]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
-    "License :: OSI Approved :: MIT License",
     "Intended Audience :: Developers",
     "Natural Language :: English",
     "Operating System :: MacOS :: MacOS X",
