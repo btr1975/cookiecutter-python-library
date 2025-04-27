@@ -23,6 +23,13 @@ REMOVE_PATHS_DOCKER = [
 REMOVE_PATHS_UV = [
     '{% if cookiecutter.package_manager == "uv" %}requirements.txt{% endif %}',
     '{% if cookiecutter.package_manager == "uv" %}requirements-dev.txt{% endif %}',
+    '{% if cookiecutter.package_manager == "uv" %}.github/workflows/publish-to-pypi.yml{% endif %}',
+    '{% if cookiecutter.package_manager == "uv" %}.github/workflows/test-coverage-lint.yml{% endif %}',
+]
+
+REMOVE_PATHS_PIP = [
+    '{% if cookiecutter.package_manager == "pip" %}.github/workflows/publish-to-pypi-uv.yml{% endif %}',
+    '{% if cookiecutter.package_manager == "pip" %}.github/workflows/test-coverage-lint-uv.yml{% endif %}',
 ]
 
 
@@ -47,3 +54,4 @@ if __name__ == "__main__":
     remove_paths(REMOVE_PATHS_PODMAN)
     remove_paths(REMOVE_PATHS_DOCKER)
     remove_paths(REMOVE_PATHS_UV)
+    remove_paths(REMOVE_PATHS_PIP)
