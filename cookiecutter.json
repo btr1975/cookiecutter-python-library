@@ -20,7 +20,8 @@
         "3.10",
         "3.11",
         "3.12",
-        "3.13"
+        "3.13",
+        "3.14"
     ],
     "package_manager": [
         "uv",
@@ -47,7 +48,7 @@
         "https"
     ],
     "__template_repo": "https://github.com/btr1975/cookiecutter-python-library",
-    "__template_version": "2.0.2",
+    "__template_version": "2.0.3",
     "_new_lines": "\n",
     "_copy_without_render": [
         ".github"
@@ -76,7 +77,8 @@
             "3.10": "3.10",
             "3.11": "3.11",
             "3.12": "3.12",
-            "3.13": "3.13"
+            "3.13": "3.13",
+            "3.14": "3.14"
         },
         "package_manager": {
             "__prompt__": "Which pacakge manager for Python will be supported",

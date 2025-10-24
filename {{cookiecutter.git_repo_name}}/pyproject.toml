@@ -41,17 +41,24 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
-    "Programming Language :: Python :: 3.13",{% endif -%}
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",{% endif -%}
     {% if cookiecutter.minimum_python_version == '3.10' %}"Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
-    "Programming Language :: Python :: 3.13",{% endif -%}
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",{% endif -%}
     {% if cookiecutter.minimum_python_version == '3.11' %}"Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
-    "Programming Language :: Python :: 3.13",{% endif -%}
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",{% endif -%}
     {% if cookiecutter.minimum_python_version == '3.12' %}"Programming Language :: Python :: 3.12",
-    "Programming Language :: Python :: 3.13",{% endif -%}
-    {% if cookiecutter.minimum_python_version == '3.13' %}"Programming Language :: Python :: 3.13",{% endif -%}
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",{% endif -%}
+    {% if cookiecutter.minimum_python_version == '3.13' %}
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",{% endif -%}
+    {% if cookiecutter.minimum_python_version == '3.14' %}"Programming Language :: Python :: 3.14",{% endif -%}
 
 ]
 
