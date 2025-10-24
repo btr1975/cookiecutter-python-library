@@ -1,3 +1,64 @@
+[build-system]
+requires = [
+    "setuptools>=67.6.0",
+    "wheel>=0.40.0"
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cookiecutter-python-library"
+version = "2.0.3"
+dynamic = ["readme"]
+requires-python = ">=3.9"
+description = "A cookiecutter for a python library"
+keywords = [
+]
+authors = [
+  { name="Benjamin P. Trachtenberg", email="e_ben_75-python@yahoo.com" },
+]
+maintainers = [
+  {name = "Benjamin P. Trachtenberg", email = "e_ben_75-python@yahoo.com"},
+]
+license = "MIT"
+license-files = [
+    "LICENSE"
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Natural Language :: English",
+    "Operating System :: MacOS :: MacOS X",
+    "Operating System :: POSIX",
+    "Operating System :: POSIX :: BSD",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+]
+
+dependencies = [
+    "cookiecutter~=2.6.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest-cov~=4.1.0",
+    "pytest-cookies~=0.7.0",
+    "pylint~=3.0.2",
+    "pip-audit~=2.7.3",
+    "black~=24.10.0",
+    "bandit~=1.8.3",
+]
+
+[tool.setuptools.dynamic]
+readme = {file = "README.md", content-type = "text/markdown"}
+
 [tool.pytest.ini_options]
 addopts = "--strict-markers"
 markers = [
@@ -35,3 +96,7 @@ exclude_dirs = [
     "docs",
     "{{cookiecutter.git_repo_name}}"
 ]
+
+[tool.uv]
+keyring-provider = "subprocess"
+native-tls = true
