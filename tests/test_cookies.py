@@ -17,6 +17,7 @@ def test_bake_project_no_cli_podman(cookies, bake_project_no_cli_podman_data):
     assert result.project_path.joinpath(".github", "workflows", "test-coverage-lint.yml").is_file()
     assert not result.project_path.joinpath(".github", "workflows", "publish-to-pypi-uv.yml").is_file()
     assert not result.project_path.joinpath(".github", "workflows", "test-coverage-lint-uv.yml").is_file()
+    assert result.project_path.joinpath("python_no_cli", "version.py").is_file()
 
 
 def test_bake_project_uv_no_cli_podman(cookies, bake_project_uv_no_cli_podman_data):
@@ -38,6 +39,7 @@ def test_bake_project_uv_no_cli_podman(cookies, bake_project_uv_no_cli_podman_da
     assert not result.project_path.joinpath(".github", "workflows", "test-coverage-lint.yml").is_file()
     assert result.project_path.joinpath(".github", "workflows", "publish-to-pypi-uv.yml").is_file()
     assert result.project_path.joinpath(".github", "workflows", "test-coverage-lint-uv.yml").is_file()
+    assert not result.project_path.joinpath("python_no_cli", "version.py").is_file()
 
 
 def test_bake_project_no_cli_docker(cookies, bake_project_no_cli_docker_data):
@@ -59,6 +61,7 @@ def test_bake_project_no_cli_docker(cookies, bake_project_no_cli_docker_data):
     assert result.project_path.joinpath(".github", "workflows", "test-coverage-lint.yml").is_file()
     assert not result.project_path.joinpath(".github", "workflows", "publish-to-pypi-uv.yml").is_file()
     assert not result.project_path.joinpath(".github", "workflows", "test-coverage-lint-uv.yml").is_file()
+    assert result.project_path.joinpath("python_no_cli", "version.py").is_file()
 
 
 def test_bake_project_uv_no_cli_docker(cookies, bake_project_uv_no_cli_docker_data):
@@ -80,6 +83,7 @@ def test_bake_project_uv_no_cli_docker(cookies, bake_project_uv_no_cli_docker_da
     assert not result.project_path.joinpath(".github", "workflows", "test-coverage-lint.yml").is_file()
     assert result.project_path.joinpath(".github", "workflows", "publish-to-pypi-uv.yml").is_file()
     assert result.project_path.joinpath(".github", "workflows", "test-coverage-lint-uv.yml").is_file()
+    assert not result.project_path.joinpath("python_no_cli", "version.py").is_file()
 
 
 def test_bake_project_cli_podman(cookies, bake_project_cli_podman_data):
@@ -101,6 +105,7 @@ def test_bake_project_cli_podman(cookies, bake_project_cli_podman_data):
     assert result.project_path.joinpath(".github", "workflows", "test-coverage-lint.yml").is_file()
     assert not result.project_path.joinpath(".github", "workflows", "publish-to-pypi-uv.yml").is_file()
     assert not result.project_path.joinpath(".github", "workflows", "test-coverage-lint-uv.yml").is_file()
+    assert result.project_path.joinpath("python_with_cli", "version.py").is_file()
 
 
 def test_bake_project_uv_cli_podman(cookies, bake_project_uv_cli_podman_data):
@@ -122,6 +127,7 @@ def test_bake_project_uv_cli_podman(cookies, bake_project_uv_cli_podman_data):
     assert not result.project_path.joinpath(".github", "workflows", "test-coverage-lint.yml").is_file()
     assert result.project_path.joinpath(".github", "workflows", "publish-to-pypi-uv.yml").is_file()
     assert result.project_path.joinpath(".github", "workflows", "test-coverage-lint-uv.yml").is_file()
+    assert not result.project_path.joinpath("python_with_cli", "version.py").is_file()
 
 
 def test_bake_project_cli_docker(cookies, bake_project_cli_docker_data):
@@ -143,6 +149,7 @@ def test_bake_project_cli_docker(cookies, bake_project_cli_docker_data):
     assert result.project_path.joinpath(".github", "workflows", "test-coverage-lint.yml").is_file()
     assert not result.project_path.joinpath(".github", "workflows", "publish-to-pypi-uv.yml").is_file()
     assert not result.project_path.joinpath(".github", "workflows", "test-coverage-lint-uv.yml").is_file()
+    assert result.project_path.joinpath("python_with_cli", "version.py").is_file()
 
 
 def test_bake_project_uv_cli_docker(cookies, bake_project_uv_cli_docker_data):
@@ -164,3 +171,4 @@ def test_bake_project_uv_cli_docker(cookies, bake_project_uv_cli_docker_data):
     assert not result.project_path.joinpath(".github", "workflows", "test-coverage-lint.yml").is_file()
     assert result.project_path.joinpath(".github", "workflows", "publish-to-pypi-uv.yml").is_file()
     assert result.project_path.joinpath(".github", "workflows", "test-coverage-lint-uv.yml").is_file()
+    assert not result.project_path.joinpath("python_with_cli", "version.py").is_file()

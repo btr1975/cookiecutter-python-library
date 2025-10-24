@@ -12,20 +12,28 @@
 #
 import os
 import sys
-import tomli
+
+try:
+    import tomli as toml  # For python < 3.11
+
+except ImportError:
+    import tomllib as toml  # For python >= 3.11
+
 base_path = os.path.split(os.path.join(os.path.abspath(os.path.dirname(__name__))))[0]
 sys.path.append(base_path)
 sys.path.append(os.path.join(base_path, 'docs', '_ext'))
 
+{% if cookiecutter.package_manager == 'pip' %}
 # Reads version.py and converts to a dict of keys
 version_py = {}
 with open(os.path.join(base_path, '{{cookiecutter.__library_name}}', 'version.py'), 'r', encoding='utf-8') as f:
     exec(f.read(), version_py)
+{% endif %}
 
 # Reads pyproject.toml and converts to python objects
 with open(os.path.join(base_path, 'pyproject.toml'), 'r', encoding='utf-8') as file:
-    toml = file.read()
-pyproject_toml = tomli.loads(toml)
+    toml_data = file.read()
+pyproject_toml = toml.loads(toml_data)
 
 {% if cookiecutter.library_documents_location == 'readthedocs.io' %}
 # -- Added for readthedocs.org -----------------------------------------------
@@ -35,9 +43,13 @@ master_doc = 'index'
 
 # -- Project information -----------------------------------------------------
 
+{% if cookiecutter.package_manager == 'pip' %}
 release = version_py['__version__']
+{% elif cookiecutter.package_manager == 'uv' %}
+release = f"{pyproject_toml['project']['version']}"
+{% endif %}
 project = f"{pyproject_toml['project']['name']} v{release}"
-copyright = version_py['__copyright__']
+copyright = "Copyright (c) {% now 'local', '%Y' %} {{ cookiecutter.full_name }}"
 
 # Reads authors from pyproject.toml and adds name to list
 authors = []
