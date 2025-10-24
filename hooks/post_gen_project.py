@@ -25,6 +25,7 @@ REMOVE_PATHS_UV = [
     '{% if cookiecutter.package_manager == "uv" %}requirements-dev.txt{% endif %}',
     '{% if cookiecutter.package_manager == "uv" %}.github/workflows/publish-to-pypi.yml{% endif %}',
     '{% if cookiecutter.package_manager == "uv" %}.github/workflows/test-coverage-lint.yml{% endif %}',
+    '{% if cookiecutter.package_manager == "uv" %}{{cookiecutter.__library_name}}/version.py{% endif %}',
 ]
 
 REMOVE_PATHS_PIP = [

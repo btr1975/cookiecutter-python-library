@@ -4,3 +4,6 @@ contact_links:
   - name: Python Information
     url: https://www.python.org/
     about: Python Org Website
+  - name: UV Information
+    url: https://docs.astral.sh/uv/
+    about: UV By Astral Website

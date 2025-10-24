@@ -10,3 +10,6 @@ contact_links:
   - name: pytest-cookies Information
     url: https://pytest-cookies.readthedocs.io/en/latest/
     about: pytest-cookie Website
+  - name: UV Information
+    url: https://docs.astral.sh/uv/
+    about: UV By Astral Website

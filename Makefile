@@ -1,9 +1,9 @@
 # Makefile for project needs
 # Author: Ben Trachtenberg
-# Version: 1.0.0
+# Version: 1.0.1
 #
 
-.PHONY: all info coverage pytest black secure vulnerabilities
+.PHONY: all info coverage pytest black secure vulnerabilities pip-export
 
 info:
 	@echo "make options"
@@ -11,23 +11,27 @@ info:
 	@echo "    coverage  To run coverage and display ASCII and output to htmlcov"
 	@echo "    pytest    To run pytest with verbose option"
 
-all: black pylint coverage secure vulnerabilities
+all: black pylint coverage secure vulnerabilities pip-export
 
 coverage:
-	@pytest --cov --cov-report=html -vvv
+	@uv run pytest --cov --cov-report=html -vvv
 
 pytest:
-	@pytest --cov -vvv
+	@uv run pytest --cov -vvv
 
 pylint:
-	@pylint hooks/
+	@uv run pylint hooks/
 
 black:
-	@black hooks/
-	@black tests/
+	@uv run black hooks/
+	@uv run black tests/
 
 secure:
-	@bandit -c pyproject.toml -r .
+	@uv run bandit -c pyproject.toml -r .
 
 vulnerabilities:
-	@pip-audit -r requirements.txt
+	@uv run pip-audit -r requirements.txt
+
+pip-export:
+	@uv export --no-dev --no-emit-project --no-editable > requirements.txt
+	@uv export --no-emit-project --no-editable > requirements-dev.txt

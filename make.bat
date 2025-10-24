@@ -1,47 +1,55 @@
 @ECHO OFF
 REM Makefile for project needs
 REM Author: Ben Trachtenberg
-REM Version: 1.0.0
+REM Version: 1.0.1
 REM
 
 IF "%1" == "all" (
-    black hooks\
-    black tests\
-    pylint hooks\
-    pytest --cov --cov-report=html -vvv
-    bandit -c pyproject.toml -r .
-    pip-audit -r requirements.txt
+    uv run black hooks\
+    uv run black tests\
+    uv run pylint hooks\
+    uv run pytest --cov --cov-report=html -vvv
+    uv run bandit -c pyproject.toml -r .
+    uv run pip-audit -r requirements.txt
+    uv export --no-dev --no-emit-project --no-editable > requirements.txt
+	uv export --no-emit-project --no-editable > requirements-dev.txt
     GOTO END
 )
 
 IF "%1" == "coverage" (
-    pytest --cov --cov-report=html -vvv
+    uv run pytest --cov --cov-report=html -vvv
     GOTO END
 )
 
 IF "%1" == "pylint" (
-    pylint hooks\
+    uv run pylint hooks\
     GOTO END
 )
 
 IF "%1" == "pytest" (
-    pytest --cov -vvv
+    uv run pytest --cov -vvv
     GOTO END
 )
 
 IF "%1" == "black" (
-    black hooks\
-    black tests\
+    uv run black hooks\
+    uv run black tests\
     GOTO END
 )
 
 IF "%1" == "secure" (
-    bandit -c pyproject.toml -r .
+    uv run bandit -c pyproject.toml -r .
     GOTO END
 )
 
 IF "%1" == "vulnerabilities" (
-    pip-audit -r requirements.txt
+    uv run pip-audit -r requirements.txt
+    GOTO END
+)
+
+IF "%1" == "pip-export" (
+	uv export --no-dev --no-emit-project --no-editable > requirements.txt
+	uv export --no-emit-project --no-editable > requirements-dev.txt
     GOTO END
 )
 

@@ -5,7 +5,7 @@
 build
 pip-audit
 black
-tomli
+tomli; python_version < '3.11'
 pytest-cov
 sphinx
 pylint

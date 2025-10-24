@@ -10,7 +10,8 @@ name = "{{ cookiecutter.git_repo_name }}"
 {% if cookiecutter.package_manager == 'pip' %}
 dynamic = ["version", "readme", "dependencies"]
 {% elif cookiecutter.package_manager == 'uv' %}
-dynamic = ["version", "readme"]
+dynamic = ["readme"]
+version = "{{ cookiecutter.library_version }}"
 {% endif %}
 requires-python = ">={{ cookiecutter.minimum_python_version }}"
 description = "{{ cookiecutter.library_description }}"
@@ -41,17 +42,24 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
-    "Programming Language :: Python :: 3.13",{% endif -%}
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",{% endif -%}
     {% if cookiecutter.minimum_python_version == '3.10' %}"Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
-    "Programming Language :: Python :: 3.13",{% endif -%}
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",{% endif -%}
     {% if cookiecutter.minimum_python_version == '3.11' %}"Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
-    "Programming Language :: Python :: 3.13",{% endif -%}
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",{% endif -%}
     {% if cookiecutter.minimum_python_version == '3.12' %}"Programming Language :: Python :: 3.12",
-    "Programming Language :: Python :: 3.13",{% endif -%}
-    {% if cookiecutter.minimum_python_version == '3.13' %}"Programming Language :: Python :: 3.13",{% endif -%}
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",{% endif -%}
+    {% if cookiecutter.minimum_python_version == '3.13' %}
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",{% endif -%}
+    {% if cookiecutter.minimum_python_version == '3.14' %}"Programming Language :: Python :: 3.14",{% endif -%}
 
 ]
 
@@ -64,7 +72,7 @@ dependencies = [
 [dependency-groups]
 dev = [
     "black",
-    "tomli",
+    "tomli; python_version < '3.11'",
     "pytest-cov",
     "sphinx",
     "pylint",
@@ -99,9 +107,9 @@ include = [
 zip-safe = false
 
 [tool.setuptools.dynamic]
-version = {attr = "{{cookiecutter.__library_name}}.version.__version__"}
 readme = {file = "README.md", content-type = "text/markdown"}
 {% if cookiecutter.package_manager == 'pip' %}
+version = {attr = "{{cookiecutter.__library_name}}.version.__version__"}
 dependencies = {file = "requirements.txt"}
 {% endif %}
 
