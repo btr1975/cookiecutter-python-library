@@ -14,4 +14,5 @@ sphinx_rtd_theme
 sphinxcontrib-mermaid
 twine
 bandit
+mypy
 {% if cookiecutter.use_requests == 'y' %}requests-mock{% endif %}
