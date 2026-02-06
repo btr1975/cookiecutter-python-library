@@ -16,7 +16,6 @@
     ],
     "__library_name": "{{ cookiecutter.git_repo_name.lower().replace(' ', '_').replace('-', '_') }}",
     "minimum_python_version": [
-        "3.9",
         "3.10",
         "3.11",
         "3.12",
@@ -27,7 +26,7 @@
         "uv",
         "pip"
     ],
-    "use_requests": [
+    "use_niquests": [
         "n",
         "y"
     ],
@@ -48,7 +47,7 @@
         "https"
     ],
     "__template_repo": "https://github.com/btr1975/cookiecutter-python-library",
-    "__template_version": "2.0.4",
+    "__template_version": "2.0.5",
     "_new_lines": "\n",
     "_copy_without_render": [
         ".github"
@@ -73,7 +72,6 @@
         },
         "minimum_python_version": {
             "__prompt__": "Which minimum Python version will be supported",
-            "3.9": "3.9",
             "3.10": "3.10",
             "3.11": "3.11",
             "3.12": "3.12",
@@ -85,8 +83,8 @@
             "uv": "UV By Astral",
             "pip": "PIP (The built in Python Package Installer)"
         },
-        "use_requests": {
-            "__prompt__": "Will you use the requests library",
+        "use_niquests": {
+            "__prompt__": "Will you use the niquests library",
             "n": "No",
             "y": "Yes"
         },
