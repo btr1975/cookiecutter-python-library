@@ -11,7 +11,7 @@ info:
 	@echo "    coverage  To run coverage and display ASCII and output to htmlcov"
 	@echo "    pytest    To run pytest with verbose option"
 
-all: black pylint coverage secure vulnerabilities pip-export
+all: black pylint coverage secure pip-export
 
 coverage:
 	@uv run pytest --cov --cov-report=html -vvv

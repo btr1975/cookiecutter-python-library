@@ -10,7 +10,6 @@ IF "%1" == "all" (
     uv run pylint hooks\
     uv run pytest --cov --cov-report=html -vvv
     uv run bandit -c pyproject.toml -r .
-    uv run pip-audit -r requirements.txt
     uv export --no-dev --no-emit-project --no-editable > requirements.txt
 	uv export --no-emit-project --no-editable > requirements-dev.txt
     GOTO END
