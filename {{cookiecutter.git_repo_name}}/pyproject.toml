@@ -132,6 +132,10 @@ fail-under = 9.9
 
 [tool.black]
 line-length = 120
+target-version = [
+    "py311",
+    "py312",
+]
 
 [tool.bandit]
 exclude_dirs = [
