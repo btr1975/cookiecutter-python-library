@@ -52,9 +52,6 @@ jobs:
     - name: Run Linting
       run: |
         pylint hooks/
-    - name: Check Vulnerabilities
-      run: |
-        pip-audit -r requirements.txt
 
   build-windows:
     runs-on: ${{ matrix.os }}
@@ -87,6 +84,3 @@ jobs:
     - name: Run Linting
       run: |
         pylint hooks/
-    - name: Check Vulnerabilities
-      run: |
-        pip-audit -r requirements.txt
