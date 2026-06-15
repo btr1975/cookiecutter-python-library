@@ -7,7 +7,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "cookiecutter-python-library"
-version = "2.0.6"
+version = "2.0.7"
 dynamic = ["readme"]
 requires-python = ">=3.10"
 description = "A cookiecutter for a python library"
@@ -43,7 +43,7 @@ classifiers = [
 
 dependencies = [
     "cookiecutter~=2.7.1",
-    "urllib3>=2.6.3",
+    "urllib3>=2.7.0",
 ]
 
 [dependency-groups]
@@ -103,4 +103,4 @@ exclude_dirs = [
 
 [tool.uv]
 keyring-provider = "subprocess"
-native-tls = true
+system-certs = true
