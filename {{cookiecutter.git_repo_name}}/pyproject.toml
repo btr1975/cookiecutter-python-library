@@ -59,6 +59,7 @@ classifiers = [
 {% if cookiecutter.package_manager == 'uv' %}
 dependencies = [
     {% if cookiecutter.use_niquests == 'y' %}"niquests",{% endif %}
+    {% if cookiecutter.use_niquests == 'y' %}"urllib3>=2.7.0",{% endif %}
     {% if cookiecutter.use_pydantic == 'y' %}"pydantic",{% endif %}
 ]
 
