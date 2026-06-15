@@ -149,6 +149,6 @@ exclude_dirs = [
 
 [tool.uv]
 keyring-provider = "subprocess"
-native-tls = true
+system-certs = true
 
 {% endif %}
