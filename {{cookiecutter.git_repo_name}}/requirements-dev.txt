@@ -9,6 +9,7 @@ tomli; python_version < '3.11'
 pytest-cov
 sphinx
 pylint
+pytest-asyncio
 myst-parser
 sphinx_rtd_theme
 sphinxcontrib-mermaid
