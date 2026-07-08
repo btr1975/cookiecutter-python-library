@@ -70,6 +70,7 @@ dev = [
     "pytest-cov",
     "sphinx",
     "pylint",
+    "pytest-asyncio",
     "myst-parser",
     "sphinx_rtd_theme",
     "sphinxcontrib-mermaid",
@@ -109,6 +110,7 @@ dependencies = {file = "requirements.txt"}
 
 [tool.pytest.ini_options]
 addopts = "--strict-markers"
+asyncio_mode = "auto"
 markers = [
     "place_holder: marks tests as place_holder (deselect with -m 'not place_holder')",
 ]
