@@ -135,10 +135,17 @@ fail-under = 9.9
 
 [tool.black]
 line-length = 120
+{% if cookiecutter.minimum_python_version <= '3.11' %}
 target-version = [
     "py311",
     "py312",
 ]
+{% endif %}
+{% if cookiecutter.minimum_python_version >= '3.12' %}
+target-version = [
+    "py312",
+]
+{% endif %}
 
 [tool.bandit]
 exclude_dirs = [
@@ -146,6 +153,9 @@ exclude_dirs = [
     "venv",
     "docs"
 ]
+
+[tool.mypy]
+python_version = "{{ cookiecutter.minimum_python_version }}"
 
 {% if cookiecutter.package_manager == 'uv' %}
 # UV settings reference https://docs.astral.sh/uv/reference/settings/
