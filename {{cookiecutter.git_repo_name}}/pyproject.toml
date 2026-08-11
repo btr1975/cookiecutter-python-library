@@ -140,12 +140,13 @@ target-version = [
     "py311",
     "py312",
 ]
-{% endif -%}
+{% endif %}
 {% if cookiecutter.minimum_python_version >= '3.12' %}
 target-version = [
     "py312",
 ]
-{% endif -%}
+{% endif %}
+
 [tool.bandit]
 exclude_dirs = [
     "tests",
