@@ -1,3 +1,6 @@
+# ANY UPDATES TO THIS COOKIECUTTER WILL BE MADE HERE https://github.com/btr1975/cookiecutters
+# MOVED ALL MY COOKIECUTTERS TO A MULTI-REPO
+
 # cookiecutter-python-library
 
 | BRANCH | STATUS |
